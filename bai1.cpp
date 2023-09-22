@@ -1,11 +1,20 @@
 #include <iostream>
-#include <cstring>
 using namespace std;
 int main() {
-	string s;
-	getline(cin,s);
-	for (int i=s.size();i>=0;i--) {
-		cout<<s[i];
+	int n;
+	cin>>n;
+	int a[n];
+	for (int i=0;i<n;i++) {
+		cin>>a[i];
 	}
+	int count=0;
+	for (int i=0;i<n;i++) {
+		for (int j=i+1;j<n;j++) {
+			if(a[i]==a[j]) {
+				count++;
+			}
+		}
+	}
+	cout<<count;
 	return 0;
 }
