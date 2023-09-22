@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Stack {
+class Queue {
 private:
 	vector<int> data;
 public:
@@ -9,13 +9,12 @@ public:
 		return data.empty();
 	}
 	
-	void push(int x) {
+	void enqueue(int x) {
 		data.push_back(x);
 	}
-	
-	void pop() {
+	void dequeue() {
 		if(!empty_()) {
-			data.pop_back();
+			data.erase(data.begin());
 		}
 	}
 	void print() {
@@ -24,24 +23,24 @@ public:
 		}
 		cout<<endl;
 	}
-}; 
+};
 
 int main() {
 	int n;
 	cin>>n;
-	Stack s;
-	while(n--) {
+	Queue q;
+	while (n--) {
 		string method;
 		int x;
 		cin>>method;
-		if(method== "push") {
+		if(method == "enqueue") {
 			cin>>x;
-			s.push(x);
+			q.enqueue(x);
 		}
-		else if (method == "pop") {
-			s.pop();
+		else if (method == "dequeue") {
+			q.dequeue();
 		}
-	}
-	s.print();
+	} 
+	q.print();
 	return 0;
 }
